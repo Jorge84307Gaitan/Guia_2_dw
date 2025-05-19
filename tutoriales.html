@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tutoriales - Marjo Garden</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .galeria-videos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .video-item {
+      flex: 1 1 300px;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .video-item iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+    }
+
+    .video-item h3 {
+      margin: 0;
+      padding: 10px;
+      font-size: 1.1em;
+      background-color: #f8f8f8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor-header">
+    <h1 class="nombre">Marjo Garden</h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tutoriales.html" class="active">Tutoriales</a></li>
+        <li><a href="foro.html">Foro</a></li>
+        <li><a href="asesorias.html">Asesorías</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="info-contacto">
+      <p class="telefono">telefono 3000000788</p>
+      <p class="horario">Lunes a viernes, 8 am - 5 pm</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="contenido-tutoriales">
+    <h2>Tutoriales</h2>
+    <p>
+      Aquí encontrarás tutoriales detallados para aprender a cuidar tus bonsáis y todo lo relacionado con el arte del bonsái.
+    </p>
+    <div class="galeria-videos">
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/-1z4TcQjvT8" allowfullscreen></iframe>
+        <h3>Cómo podar un bonsái</h3>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/uB1UxhbMayI" allowfullscreen></iframe>
+        <h3>Cómo diseñar un bonsái</h3>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Bonsáis y Plantas. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

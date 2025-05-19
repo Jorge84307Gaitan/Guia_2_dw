@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asesorías - Marjo Garden</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .botones-secciones {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .boton-apartado {
+            width: 200px;
+            height: 120px;
+            background-color: #2e7d32;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .boton-apartado:hover {
+            transform: scale(1.05);
+            background-color: #1b5e20;
+        }
+
+        .seccion-contenido {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f1f8e9;
+            border-radius: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+
+        h2 span {
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+<header class="encabezado">
+  <div class="contenedor-header">
+    <h1 class="nombre">Marjo Garden</h1>
+    <div class="info-contacto">
+      <p class="telefono">telefono 3000000788</p>
+      <p class="horario">Lunes a Viernes, 8am - 5pm</p>
+    </div>
+  </div>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="tutoriales.html">Tutoriales</a></li>
+      <li><a href="foro.html">Foro</a></li>
+      <li><a href="asesorias.html" class="active">Asesorías</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+    <section class="seccion-contenido">
+        <h2>Asesorías en <span>Marjo Garden</span></h2>
+        <p>Ofrecemos asesorías personalizadas para ayudarte a cuidar y mantener tus bonsáis y plantas en las mejores condiciones.</p>
+        
+        <ul>
+            <li>Asesoría en selección y compra de bonsáis.</li>
+            <li>Guía de trasplante y poda.</li>
+            <li>Consejos sobre riego y fertilización.</li>
+            <li>Diagnóstico y tratamiento de enfermedades.</li>
+        </ul>
+        
+        <p>Para solicitar una asesoría, por favor contáctanos en la página de contacto.</p>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Bonsáis y Plantas. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>

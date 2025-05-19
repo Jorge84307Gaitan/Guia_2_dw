@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foro - Marjo Garden</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .botones-secciones {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .boton-apartado {
+      width: 200px;
+      height: 120px;
+      background-color: #2e7d32;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .boton-apartado:hover {
+      transform: scale(1.05);
+      background-color: #1b5e20;
+    }
+
+    .seccion-contenido {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f1f8e9;
+      border-radius: 10px;
+    }
+
+    article {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 span {
+      color: #2e7d32;
+    }
+
+    input, textarea, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+<header class="encabezado">
+  <div class="contenedor-header">
+    <h1 class="nombre">Marjo Garden</h1>
+    <div class="info-contacto">
+      <p class="telefono">telefono 3000000788</p>
+      <p class="horario">Lunes a Viernes, 8am - 5pm</p>
+    </div>
+  </div>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="tutoriales.html">Tutoriales</a></li>
+      <li><a href="foro.html" class="active">Foro</a></li>
+      <li><a href="asesorias.html">Asesorías</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="seccion-contenido">
+    <h2>Foro de <span>Marjo Garden</span></h2>
+    <p>Bienvenido al foro donde puedes compartir dudas, consejos y experiencias sobre el cuidado de bonsáis y plantas.</p>
+
+    <div id="publicaciones">
+    </div>
+  </section>
+
+
+  <section id="login-section" class="seccion-contenido">
+    <h3>Iniciar sesión para participar</h3>
+    <form id="login-form">
+      <input type="text" id="nombreUsuario" placeholder="Nombre" required />
+      <input type="password" id="claveUsuario" placeholder="Contraseña" required />
+      <button type="submit">Ingresar</button>
+    </form>
+  </section>
+
+  <section id="foro-interactivo" class="seccion-contenido" style="display: none;">
+    <h3>Publicar una nueva pregunta o comentario</h3>
+    <form id="foro-form">
+      <input type="text" id="titulo" placeholder="Título del mensaje" required />
+      <textarea id="contenido" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit">Publicar</button>
+    </form>
+    <button id="btnCerrarSesion" style="margin-top: 10px; background-color: #c62828;">Cerrar sesión</button>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Bonsáis y Plantas. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  const publicacionesIniciales = [
+    {
+      titulo: "¿Cuál es el mejor sustrato para ficus?",
+      autor: "Usuario1",
+      contenido: "Estoy empezando con mi bonsái ficus y quisiera saber qué sustrato es mejor para su desarrollo.",
+      fecha: ""
+    },
+    {
+      titulo: "Riego adecuado en clima seco",
+      autor: "Usuario2",
+      contenido: "¿Cada cuánto debería regar mi bonsái si vivo en una zona muy seca?",
+      fecha: ""
+    }
+  ];
+
+  const loginSection = document.getElementById("login-section");
+  const foroInteractivo = document.getElementById("foro-interactivo");
+  const publicacionesDiv = document.getElementById("publicaciones");
+
+  const usuarioGuardado = localStorage.getItem("usuario");
+
+  if (usuarioGuardado) {
+    loginSection.style.display = "none";
+    foroInteractivo.style.display = "block";
+  }
+
+  document.getElementById("login-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById("nombreUsuario").value.trim();
+    const clave = document.getElementById("claveUsuario").value.trim();
+    if (nombre.length >= 3 && clave.length >= 3) {
+      localStorage.setItem("usuario", nombre);
+      location.reload();
+    } else {
+      alert("Nombre y contraseña deben tener al menos 3 caracteres.");
+    }
+  });
+
+  document.getElementById("foro-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const titulo = document.getElementById("titulo").value.trim();
+    const contenido = document.getElementById("contenido").value.trim();
+    const autor = localStorage.getItem("usuario");
+
+    const nuevaPublicacion = {
+      titulo,
+      contenido,
+      autor,
+      fecha: new Date().toLocaleString()
+    };
+
+    const publicacionesGuardadas = JSON.parse(localStorage.getItem("publicaciones") || "[]");
+    publicacionesGuardadas.unshift(nuevaPublicacion);
+    localStorage.setItem("publicaciones", JSON.stringify(publicacionesGuardadas));
+
+    mostrarPublicaciones();
+    this.reset();
+  });
+
+  function mostrarPublicaciones() {
+    const publicacionesGuardadas = JSON.parse(localStorage.getItem("publicaciones") || "[]");
+
+
+    const todasPublicaciones = publicacionesIniciales.concat(publicacionesGuardadas);
+
+
+    publicacionesDiv.innerHTML = todasPublicaciones.map(pub => `
+      <article>
+        <h3>${pub.titulo}</h3>
+        <p><strong>${pub.autor}</strong> ${pub.fecha ? '- <em>' + pub.fecha + '</em>' : ''}</p>
+        <p>${pub.contenido}</p>
+      </article>
+    `).join("");
+  }
+
+  mostrarPublicaciones();
+
+  const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+
+  btnCerrarSesion.addEventListener("click", () => {
+    localStorage.removeItem("usuario");
+    location.reload();
+  });
+</script>
+</body>
+</html>

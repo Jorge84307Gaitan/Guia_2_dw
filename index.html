@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inicio - Bonsáis y Plantas</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .botones-secciones {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .boton-apartado {
+            width: 200px;
+            height: 120px;
+            background-color: #2e7d32;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .boton-apartado:hover {
+            transform: scale(1.05);
+            background-color: #1b5e20;
+        }
+        #bonsais {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px 40px;
+            background-color: #f1f8e9;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2e7d32;
+            display: none; 
+        }
+        #bonsais h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #7fc86c;
+            padding-bottom: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .lista-bonsais {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .bonsai-item {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 280px;
+            padding: 15px;
+            text-align: center;
+        }
+        .bonsai-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .bonsai-item h3 {
+            margin: 10px 0 8px 0;
+            font-size: 1.3rem;
+            color: #2e7d32;
+        }
+        .bonsai-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+        #carrito {
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            background: #388e3c;
+            padding: 8px 15px;
+            border-radius: 8px;
+            user-select: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<header class="encabezado">
+  <div class="contenedor-header" style="display:flex; align-items:center; justify-content: space-between;">
+    <h1 class="nombre">Marjo Garden</h1>
+
+    <div id="carrito" title="Ver carrito">
+      🛒 Carrito: <span id="cantidadCarrito">0</span>
+    </div>
+
+    <div class="info-contacto" style="text-align:right;">
+      <p class="telefono"> telefono 3000000788</p>
+      <p class="horario">Lunes a Viernes, 8am - 5pm</p>
+    </div>
+  </div>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="tutoriales.html">Tutoriales</a></li>
+      <li><a href="foro.html">Foro</a></li>
+      <li><a href="asesorias.html">Asesorías</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section class="hero-bonsai">
+  <div class="overlay"></div>
+  <div class="contenido-hero">
+    <h2> Bienvenido a <span>Marjo garden</span></h2>
+    <p class="intro">
+      Tu sitio para aprender, compartir y comprar productos para el cuidado de bonsáis y plantas.
+    </p>
+    <div class="descripcion-bonsai">
+      <h3>¿Qué es un bonsái?</h3>
+      <p>
+        El bonsai es un arte  en el cual se cultiva un árbol en una matera pequeña. 
+        Este árbol debe ser cuidadosamente podado, alambrado, moldeado y cultivado en un ambiente que sea similar a sus condiciones naturales  para lograr una forma que 
+        represente a un árbol en su estado natural, para lograr estos resultados se deben seguir cuidados especificos para cada especie.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="botones-secciones">
+    <button class="boton-apartado" id="btnBonsais">Bonsáis</button>
+    <button class="boton-apartado" id="btnProductos">Productos</button>
+    <button class="boton-apartado" id="btnOtrasPlantas">Otras plantas</button>
+</section>
+<section id="bonsais">
+    <h2 id="tituloSeccion">Descubre nuestros Bonsáis</h2>
+    <div class="lista-bonsais" id="listaBonsais">
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2025 Bonsáis y Plantas. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - Marjo garden</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .contenido-contacto {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #f1f8e9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .contenido-contacto h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+
+    .contenido-contacto p {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .formulario-contacto label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .formulario-contacto input,
+    .formulario-contacto textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .formulario-contacto button {
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .formulario-contacto button:hover {
+      background-color: #1b5e20;
+    }
+
+    .alerta-exito {
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4caf50;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(76, 175, 80, 0.5);
+      font-size: 18px;
+      opacity: 0;
+      pointer-events: none;
+      animation: slideFadeIn 0.5s forwards, slideFadeOut 0.5s 3.5s forwards;
+      z-index: 10;
+    }
+
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    @keyframes slideFadeOut {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -30px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor-header">
+    <h1 class="nombre">Marjo garden</h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tutoriales.html">Tutoriales</a></li>
+        <li><a href="foro.html">Foro</a></li>
+        <li><a href="asesorias.html">Asesorías</a></li>
+        <li><a href="contacto.html" class="active">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="info-contacto">
+      <p class="telefono">telefono 3000000788</p>
+      <p class="horario">Lunes a viernes, 8 am - 5 pm</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="contenido-contacto">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes preguntas, sugerencias o quieres comunicarte con nosotros? Completa el siguiente formulario y te responderemos lo antes posible.</p>
+
+    <div id="alerta" class="alerta-exito" style="display:none;">
+      ¡Mensaje enviado con éxito! Gracias por contactarnos.
+    </div>
+
+    <form action="#" method="post" class="formulario-contacto" id="form-contacto">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Bonsáis y Plantas. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('form-contacto');
+  const alerta = document.getElementById('alerta');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+
+    alerta.style.display = 'block';
+    alerta.style.animation = 'none'; 
+    void alerta.offsetWidth;
+    alerta.style.animation = 'slideFadeIn 0.5s forwards, slideFadeOut 0.5s 3.5s forwards';
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
